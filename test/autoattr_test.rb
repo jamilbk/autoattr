@@ -10,6 +10,8 @@ class AutoAttrTest < Test::Unit::TestCase
   end
 
   def test_retrieves_nil
-    assert self.should_be_nil == nil, "Testing attr_readers are nil before attr_writer is called."
+    assert_raise NoMethodError do
+      self.should_raise_nomethoderror
+    end
   end
 end
