@@ -18,12 +18,14 @@ foo = Hello.new
 foo.hello_world = "hello world"
 foo.hello_world
   => "hello world"
+foo.respond_to? :hello_world
+  => true
 ```
 
 Keep in mind attr_reader-style calls will still trigger method missing until you assign them:
 
 ```ruby
 foo = Hello.new
-foo.should_be_nil
-  => nil
+foo.should_trigger_nomethoderror
+  => NoMethodError: undefined method `should_trigger_nomethoderror' for #<Hello:0x007f9b6b14e9d0>
 ```
